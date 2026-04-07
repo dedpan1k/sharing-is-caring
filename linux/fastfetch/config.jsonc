@@ -1,0 +1,262 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  
+    "logo": {
+      "type": "kitty",
+      "source": "$HOME/.config/fastfetch/logo_img/ror_fetch.png",
+      "position": "left",
+      "height": 26,
+      "padding": {
+        "top": 1,
+        "right": 1
+      },
+      "printRemaining": true
+    },
+  
+    "display": {
+      "pipe": false,
+      "showErrors": true,
+      "disableLinewrap": false,
+      "separator": "  ",
+      "color": {
+        "keys": "252",
+        "title": "195",
+        "separator": "59",
+        "output": "252"
+      },
+      "brightColor": true,
+      "key": {
+        "type": "string",
+        "width": 0,
+        "paddingLeft": 0
+      },
+      "bar": {
+        "width": 13,
+        "char": {
+          "elapsed": "━",
+          "total": "╌"
+        },
+        "border": null,
+        "color": {
+          "elapsed": "118",
+          "total": "59"
+        }
+      },
+      "percent": {
+        "type": ["bar", "num"],
+        "ndigits": 0,
+        "color": {
+          "green": "118",
+          "yellow": "178",
+          "red": "196"
+        }
+      },
+      "temp": {
+        "unit": "C",
+        "ndigits": 1,
+        "color": {
+          "green": "118",
+          "yellow": "178",
+          "red": "196"
+        }
+      }
+    },
+  
+    "general": {
+      "detectVersion": true,
+      "processingTimeout": 5000,
+      "thread": true
+    },
+  
+    "modules": [
+      {
+        "type": "title",
+        "key": " {#@118}󱄅 ",
+        "fqdn": false,
+        "color": {
+          "user": "118",
+          "at": "59",
+          "host": "195"
+        }
+      },
+      {
+        "type": "custom",
+        "format": " {#@195}╭─────────────────────────────────────────────╮"
+      },
+      {
+        "type": "custom",
+        "format": " {#@195}├──── {#@118}  SYSTEM {#@195}──────────────────────────────┤"
+      },
+      {
+        "type": "command",
+        "key": " {#@195}│ {#@118} {#@252}Host     ",
+        "text": "hostnamectl --static"
+      },
+      {
+        "type": "os",
+        "key": " {#@195}│ {#@118}󰣇 {#@252}OS       ",
+        "format": "{?pretty-name}{pretty-name}{?}{/pretty-name}{name}{/} [{arch}]"
+      },
+      {
+        "type": "kernel",
+        "key": " {#@195}│ {#@118} {#@252}Kernel   "
+      },
+      {
+        "type": "uptime",
+        "key": " {#@195}│ {#@118}󰅐 {#@252}Uptime   ",
+        "format": "{?days}{days}d {?}{hours}h {minutes}m"
+      },
+      {
+        "type": "custom",
+        "format": " {#@195}├──── {#@81}󱂬  DESKTOP {#@195}─────────────────────────────┤"
+      },
+      {
+        "type": "wm",
+        "key": " {#@195}│ {#@81}󱂬 {#@252}WM       ",
+        "detectPlugin": true,
+        "format": "{pretty-name}{?version} ({version}){?}"
+      },
+      {
+        "type": "shell",
+        "key": " {#@195}│ {#@81} {#@252}Shell    ",
+        "format": "{pretty-name}{?version} {version}{?}"
+      },
+      {
+        "type": "terminal",
+        "key": " {#@195}│ {#@81} {#@252}Terminal ",
+        "format": "{pretty-name}{?version} {version}{?}"
+      },
+      {
+        "type": "terminalfont",
+        "key": " {#@195}│ {#@81} {#@252}Font     ",
+        "format": "{name}{?size} ({size}){?}"
+      },
+      {
+        "type": "theme",
+        "key": " {#@195}│ {#@81}󰏘 {#@252}Theme    "
+      },
+      {
+        "type": "icons",
+        "key": " {#@195}│ {#@81}󰀻 {#@252}Icons    "
+      },
+      {
+        "type": "cursor",
+        "key": " {#@195}│ {#@81}󰳽 {#@252}Cursor   "
+      },
+      {
+        "type": "custom",
+        "format": " {#@195}├──── {#@178}  HARDWARE {#@195}────────────────────────────┤"
+      },
+      {
+        "type": "cpu",
+        "key": " {#@195}│ {#@178} {#@252}CPU      ",
+        "temp": false,
+        "showPeCoreCount": false,
+        "format": "{name}"
+      },
+      {
+        "type": "cpu",
+        "key": " {#@195}│   {#@59}└─{#@252}       ",
+        "temp": true,
+        "showPeCoreCount": false,
+        "format": "{freq-max}{?temperature} │ {temperature}{?}"
+      },
+      {
+        "type": "gpu",
+        "key": " {#@195}│ {#@178}󰢮 {#@252}GPU      ",
+        "temp": false,
+        "driverSpecific": false,
+        "detectionMethod": "pci",
+        "hideType": "integrated",
+        "format": "{name}{?type} [{type}]{?}"
+      },
+      {
+        "type": "gpu",
+        "key": " {#@195}│   {#@59}└─{#@252}       ",
+        "temp": true,
+        "driverSpecific": false,
+        "detectionMethod": "pci",
+        "hideType": "integrated",
+        "format": "{?frequency}{frequency} │ {?}{temperature}"
+      },
+      {
+        "type": "memory",
+        "key": " {#@195}│ {#@178}󰍛 {#@252}RAM      ",
+        "format": "{percentage-bar} {used}/{total} ({percentage})"
+      },
+      {
+        "type": "display",
+        "key": " {#@195}│ {#@178}󰍹 {#@252}Display  ",
+        "compactType": "none",
+        "preciseRefreshRate": true,
+        "format": "{width}×{height} @ {refresh-rate}Hz"
+      },
+      {
+        "type": "disk",
+        "key": " {#@195}│ {#@178}󰋊 {#@252}Disk     ",
+        "folders": "/",
+        "showRegular": true,
+        "showExternal": false,
+        "showHidden": false,
+        "showSubvolumes": false,
+        "showReadOnly": false,
+        "hideFolders": "/efi:/boot:/boot/*",
+        "useAvailable": true,
+        "format": "{size-percentage-bar} {size-used}/{size-total} ({size-percentage})",
+        "percent": {
+          "green": 50,
+          "yellow": 80,
+          "type": 0
+        }
+      },
+      {
+        "type": "disk",
+        "key": " {#@195}│   {#@59}└─{#@252}       ",
+        "folders": "/",
+        "showRegular": true,
+        "showExternal": false,
+        "showHidden": false,
+        "showSubvolumes": false,
+        "showReadOnly": false,
+        "hideFolders": "/efi:/boot:/boot/*",
+        "format": "{filesystem}{?mountpoint} @ {mountpoint}{?}"
+      },
+      {
+        "type": "custom",
+        "format": " {#@195}├──── {#@141}󰏗  SOFTWARE {#@195}────────────────────────────┤"
+      },
+      {
+        "type": "packages",
+        "key": " {#@195}│ {#@141}󰏗 {#@252}Packages ",
+        "combined": false,
+        "disabled": ["apk"]
+      },
+      {
+        "type": "localip",
+        "key": " {#@195}│ {#@141}󰩟 {#@252}Network  ",
+        "showIpv4": true,
+        "showIpv6": false,
+        "showMac": false,
+        "defaultRouteOnly": true,
+        "showPrefixLen": true,
+        "compact": true,
+        "format": "{ipv4}"
+      },
+      {
+        "type": "custom",
+        "format": " {#@195}╰─────────────────────────────────────────────╯"
+      },
+      "break",
+      {
+        "type": "colors",
+        "key": "  ",
+        "keyIcon": "",
+        "symbol": "circle",
+        "paddingLeft": 2,
+        "block": {
+          "width": 1,
+          "range": [0, 15]
+        }
+      }
+    ]
+  }
