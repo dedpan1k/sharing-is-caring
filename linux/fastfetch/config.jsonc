@@ -1,262 +1,277 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  
-    "logo": {
-      "type": "kitty",
-      "source": "$HOME/.config/fastfetch/logo_img/ror_fetch.png",
-      "position": "left",
-      "height": 26,
-      "padding": {
-        "top": 1,
-        "right": 1
-      },
-      "printRemaining": true
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "kitty",
+    "source": "$HOME/Pictures/fastfetch_imgs/*.png",
+    "position": "left",
+    "height": 26,
+    "padding": {
+      "top": 1,
+      "right": 1
     },
-  
-    "display": {
-      "pipe": false,
-      "showErrors": true,
-      "disableLinewrap": false,
-      "separator": "  ",
+    "printRemaining": true
+  },
+
+  "display": {
+    "pipe": false,
+    "showErrors": false,
+    "disableLinewrap": false,
+    "separator": "  ",
+    "color": {
+      "keys": "252",
+      "title": "195",
+      "separator": "59",
+      "output": "252"
+    },
+    "brightColor": true,
+    "key": {
+      "type": "string",
+      "width": 0,
+      "paddingLeft": 0
+    },
+    "bar": {
+      "width": 16,
+      "char": {
+        "elapsed": "█",
+        "total": "░"
+      },
+      "border": null,
       "color": {
-        "keys": "252",
-        "title": "195",
-        "separator": "59",
-        "output": "252"
-      },
-      "brightColor": true,
-      "key": {
-        "type": "string",
-        "width": 0,
-        "paddingLeft": 0
-      },
-      "bar": {
-        "width": 13,
-        "char": {
-          "elapsed": "━",
-          "total": "╌"
-        },
-        "border": null,
-        "color": {
-          "elapsed": "118",
-          "total": "59"
-        }
-      },
-      "percent": {
-        "type": ["bar", "num"],
-        "ndigits": 0,
-        "color": {
-          "green": "118",
-          "yellow": "178",
-          "red": "196"
-        }
-      },
-      "temp": {
-        "unit": "C",
-        "ndigits": 1,
-        "color": {
-          "green": "118",
-          "yellow": "178",
-          "red": "196"
-        }
+        "elapsed": "118",
+        "total": "59"
       }
     },
-  
-    "general": {
-      "detectVersion": true,
-      "processingTimeout": 5000,
-      "thread": true
-    },
-  
-    "modules": [
-      {
-        "type": "title",
-        "key": " {#@118}󱄅 ",
-        "fqdn": false,
-        "color": {
-          "user": "118",
-          "at": "59",
-          "host": "195"
-        }
-      },
-      {
-        "type": "custom",
-        "format": " {#@195}╭─────────────────────────────────────────────╮"
-      },
-      {
-        "type": "custom",
-        "format": " {#@195}├──── {#@118}  SYSTEM {#@195}──────────────────────────────┤"
-      },
-      {
-        "type": "command",
-        "key": " {#@195}│ {#@118} {#@252}Host     ",
-        "text": "hostnamectl --static"
-      },
-      {
-        "type": "os",
-        "key": " {#@195}│ {#@118}󰣇 {#@252}OS       ",
-        "format": "{?pretty-name}{pretty-name}{?}{/pretty-name}{name}{/} [{arch}]"
-      },
-      {
-        "type": "kernel",
-        "key": " {#@195}│ {#@118} {#@252}Kernel   "
-      },
-      {
-        "type": "uptime",
-        "key": " {#@195}│ {#@118}󰅐 {#@252}Uptime   ",
-        "format": "{?days}{days}d {?}{hours}h {minutes}m"
-      },
-      {
-        "type": "custom",
-        "format": " {#@195}├──── {#@81}󱂬  DESKTOP {#@195}─────────────────────────────┤"
-      },
-      {
-        "type": "wm",
-        "key": " {#@195}│ {#@81}󱂬 {#@252}WM       ",
-        "detectPlugin": true,
-        "format": "{pretty-name}{?version} ({version}){?}"
-      },
-      {
-        "type": "shell",
-        "key": " {#@195}│ {#@81} {#@252}Shell    ",
-        "format": "{pretty-name}{?version} {version}{?}"
-      },
-      {
-        "type": "terminal",
-        "key": " {#@195}│ {#@81} {#@252}Terminal ",
-        "format": "{pretty-name}{?version} {version}{?}"
-      },
-      {
-        "type": "terminalfont",
-        "key": " {#@195}│ {#@81} {#@252}Font     ",
-        "format": "{name}{?size} ({size}){?}"
-      },
-      {
-        "type": "theme",
-        "key": " {#@195}│ {#@81}󰏘 {#@252}Theme    "
-      },
-      {
-        "type": "icons",
-        "key": " {#@195}│ {#@81}󰀻 {#@252}Icons    "
-      },
-      {
-        "type": "cursor",
-        "key": " {#@195}│ {#@81}󰳽 {#@252}Cursor   "
-      },
-      {
-        "type": "custom",
-        "format": " {#@195}├──── {#@178}  HARDWARE {#@195}────────────────────────────┤"
-      },
-      {
-        "type": "cpu",
-        "key": " {#@195}│ {#@178} {#@252}CPU      ",
-        "temp": false,
-        "showPeCoreCount": false,
-        "format": "{name}"
-      },
-      {
-        "type": "cpu",
-        "key": " {#@195}│   {#@59}└─{#@252}       ",
-        "temp": true,
-        "showPeCoreCount": false,
-        "format": "{freq-max}{?temperature} │ {temperature}{?}"
-      },
-      {
-        "type": "gpu",
-        "key": " {#@195}│ {#@178}󰢮 {#@252}GPU      ",
-        "temp": false,
-        "driverSpecific": false,
-        "detectionMethod": "pci",
-        "hideType": "integrated",
-        "format": "{name}{?type} [{type}]{?}"
-      },
-      {
-        "type": "gpu",
-        "key": " {#@195}│   {#@59}└─{#@252}       ",
-        "temp": true,
-        "driverSpecific": false,
-        "detectionMethod": "pci",
-        "hideType": "integrated",
-        "format": "{?frequency}{frequency} │ {?}{temperature}"
-      },
-      {
-        "type": "memory",
-        "key": " {#@195}│ {#@178}󰍛 {#@252}RAM      ",
-        "format": "{percentage-bar} {used}/{total} ({percentage})"
-      },
-      {
-        "type": "display",
-        "key": " {#@195}│ {#@178}󰍹 {#@252}Display  ",
-        "compactType": "none",
-        "preciseRefreshRate": true,
-        "format": "{width}×{height} @ {refresh-rate}Hz"
-      },
-      {
-        "type": "disk",
-        "key": " {#@195}│ {#@178}󰋊 {#@252}Disk     ",
-        "folders": "/",
-        "showRegular": true,
-        "showExternal": false,
-        "showHidden": false,
-        "showSubvolumes": false,
-        "showReadOnly": false,
-        "hideFolders": "/efi:/boot:/boot/*",
-        "useAvailable": true,
-        "format": "{size-percentage-bar} {size-used}/{size-total} ({size-percentage})",
-        "percent": {
-          "green": 50,
-          "yellow": 80,
-          "type": 0
-        }
-      },
-      {
-        "type": "disk",
-        "key": " {#@195}│   {#@59}└─{#@252}       ",
-        "folders": "/",
-        "showRegular": true,
-        "showExternal": false,
-        "showHidden": false,
-        "showSubvolumes": false,
-        "showReadOnly": false,
-        "hideFolders": "/efi:/boot:/boot/*",
-        "format": "{filesystem}{?mountpoint} @ {mountpoint}{?}"
-      },
-      {
-        "type": "custom",
-        "format": " {#@195}├──── {#@141}󰏗  SOFTWARE {#@195}────────────────────────────┤"
-      },
-      {
-        "type": "packages",
-        "key": " {#@195}│ {#@141}󰏗 {#@252}Packages ",
-        "combined": false,
-        "disabled": ["apk"]
-      },
-      {
-        "type": "localip",
-        "key": " {#@195}│ {#@141}󰩟 {#@252}Network  ",
-        "showIpv4": true,
-        "showIpv6": false,
-        "showMac": false,
-        "defaultRouteOnly": true,
-        "showPrefixLen": true,
-        "compact": true,
-        "format": "{ipv4}"
-      },
-      {
-        "type": "custom",
-        "format": " {#@195}╰─────────────────────────────────────────────╯"
-      },
-      "break",
-      {
-        "type": "colors",
-        "key": "  ",
-        "keyIcon": "",
-        "symbol": "circle",
-        "paddingLeft": 2,
-        "block": {
-          "width": 1,
-          "range": [0, 15]
-        }
+    "percent": {
+      "type": ["bar", "num"],
+      "ndigits": 0,
+      "color": {
+        "green": "118",
+        "yellow": "178",
+        "red": "196"
       }
-    ]
-  }
+    },
+    "temp": {
+      "unit": "C",
+      "ndigits": 1,
+      "color": {
+        "green": "118",
+        "yellow": "178",
+        "red": "196"
+      }
+    }
+  },
+
+  "general": {
+    "detectVersion": true,
+    "processingTimeout": 5000,
+    "thread": true
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "key": " {#@118}󱄅 ",
+      "fqdn": false,
+      "color": {
+        "user": "118",
+        "at": "59",
+        "host": "195"
+      }
+    },
+    {
+      "type": "custom",
+      "format": " {#@195}╭──── {#@118}󰣇  SYSTEM {#@195}────────────────────────────────────────╮"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@118}󰇄 {#@252}Host      ",
+      "text": "hostnamectl --static | sed 's/$/ ••••••••••••••••••••••••••••••│/'"
+    },
+    {
+      "type": "os",
+      "key": " {#@195}│ {#@118}󰣇 {#@252}OS        ",
+      "format": "{?pretty-name}{pretty-name}{?}{/pretty-name}{name}{/} [{arch}] •••••••••••••••••••••••│"
+    },
+    {
+      "type": "kernel",
+      "key": " {#@195}│ {#@118} {#@252}Kernel    ",
+      "format": "{release} ••••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@118}󰅐 {#@252}Uptime  ",
+      "text": "awk '{s=int($1); d=int(s/86400); h=int((s%86400)/3600); m=int((s%3600)/60); t=sprintf(\"%3dd %02dh %02dm\", d, h, m); printf \"%s •••••••••••••••••••••••••••••│\", t}' /proc/uptime"
+    },
+    {
+      "type": "custom",
+      "format": " {#@195}├──── {#@81}󱂬  DESKTOP {#@195}───────────────────────────────────────┤"
+    },
+    {
+      "type": "wm",
+      "key": " {#@195}│ {#@81}󱂬 {#@252}WM        ",
+      "detectPlugin": true,
+      "format": "{pretty-name}{?version} ({version}){?} •••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "shell",
+      "key": " {#@195}│ {#@81}󰞷 {#@252}Shell     ",
+      "format": "{pretty-name}{?version} {version}{?} •••••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "terminal",
+      "key": " {#@195}│ {#@81} {#@252}Terminal  ",
+      "format": "{pretty-name}{?version} {version}{?} ••••••••••••••••••│"
+    },
+    {
+      "type": "terminalfont",
+      "key": " {#@195}│ {#@81} {#@252}Font      ",
+      "format": "{name}{?size} ({size}){?} •••••••••••│"
+    },
+    {
+      "type": "theme",
+      "key": " {#@195}│ {#@81}󰏘 {#@252}Theme    ",
+      "format": "{theme1}{?theme2} ({theme2}){?} •••••••••••••│"
+    },
+    {
+      "type": "icons",
+      "key": " {#@195}│ {#@81}󰀻 {#@252}Icons    ",
+      "format": "{icons1}{?icons2} ({icons2}){?} •••••••••••••••••••│"
+    },
+    {
+      "type": "cursor",
+      "key": " {#@195}│ {#@81}󰳽 {#@252}Cursor    ",
+      "format": "{theme}{?size} ({size}){?} •••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "custom",
+      "format": " {#@195}├──── {#@178}󰍹  RESOURCES {#@195}─────────────────────────────────────┤"
+    },
+    {
+      "type": "cpu",
+      "key": " {#@195}│ {#@178} {#@252}CPU       ",
+      "temp": false,
+      "showPeCoreCount": false,
+      "format": "{name} ••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Usage   ",
+      "text": "read _ u n s i io irq sirq st g gn < /proc/stat; t1=$((u+n+s+i+io+irq+sirq+st)); id1=$((i+io)); sleep 0.15; read _ u n s i io irq sirq st g gn < /proc/stat; t2=$((u+n+s+i+io+irq+sirq+st)); id2=$((i+io)); dt=$((t2-t1)); did=$((id2-id1)); [ \"$dt\" -le 0 ] && dt=1; p=$((100*(dt-did)/dt)); [ \"$p\" -lt 0 ] && p=0; [ \"$p\" -gt 100 ] && p=100; awk -v p=\"$p\" 'BEGIN {w=16; f=int(p*w/100); bar=\"\"; for (i=1; i<=w; i++) bar=bar ((i<=f) ? \"█\" : \"░\"); lbl=sprintf(\"%03d%%\", p); lblc=sprintf(\"\\033[48;5;59m%s\\033[49m\", lbl); s=int((w-length(lbl))/2)+1; print substr(bar,1,s-1) lblc substr(bar,s+length(lbl));}'",
+      "format": "          •• 󰣙  {result} •••••••│"
+    },
+    {
+      "type": "gpu",
+      "key": " {#@195}│ {#@178}󰢮 {#@252}GPU       ",
+      "temp": true,
+      "driverSpecific": true,
+      "detectionMethod": "pci",
+      "hideType": "integrated",
+      "format": "{name}{?type} [{type}]{?} •••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Usage    ",
+      "text": "if command -v nvidia-smi >/dev/null 2>&1; then u=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null | head -n1); elif [ -r /sys/class/drm/card0/device/gpu_busy_percent ]; then u=$(cat /sys/class/drm/card0/device/gpu_busy_percent 2>/dev/null); else u=''; fi; case \"$u\" in ''|*[!0-9]*) printf '░░░░░░░░░░░░░░░░'; exit 0;; esac; [ \"$u\" -lt 0 ] && u=0; [ \"$u\" -gt 100 ] && u=100; awk -v p=\"$u\" 'BEGIN {w=16; f=int(p*w/100); bar=\"\"; for (i=1; i<=w; i++) bar=bar ((i<=f) ? \"█\" : \"░\"); lbl=sprintf(\"%03d%%\", p); lblc=sprintf(\"\\033[48;5;59m%s\\033[49m\", lbl); s=int((w-length(lbl))/2)+1; print substr(bar,1,s-1) lblc substr(bar,s+length(lbl));}'",
+      "format": "         •• 󱚢  {result} •••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@178}󰍛 {#@252}RAM       ",
+      "text": "awk '/MemTotal:/ {t=$2} /MemAvailable:/ {a=$2} END {if (t > 0) printf \"%.2f GiB/%.2f GiB\", a/1048576, t/1048576; else printf \"n/a\"}' /proc/meminfo",
+      "format": "{result} ••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Usage    ",
+      "text": "awk '/MemTotal:/ {t=$2} /MemAvailable:/ {a=$2} END {if (t <= 0) {print \"n/a\"; exit} u=t-a; p=int((u*100)/t + 0.5); if (p < 0) p=0; if (p > 100) p=100; w=16; f=int(p*w/100); bar=\"\"; for (i=1; i<=w; i++) bar=bar ((i<=f) ? \"█\" : \"░\"); lbl=sprintf(\"%03d%%\", p); lblc=sprintf(\"\\033[48;5;59m%s\\033[49m\", lbl); s=int((w-length(lbl))/2)+1; bar=substr(bar,1,s-1) lblc substr(bar,s+length(lbl)); print bar}' /proc/meminfo",
+      "format": "         •• 󱃄  {result} •••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@178}󰍹 {#@252}Display   ",
+      "splitLines": true,
+      "text": "if command -v niri >/dev/null 2>&1; then niri msg outputs | awk '/^Output \"/ {line=$0; sub(/^Output \"/, \"\", line); sub(/\" \\([^)]+\\)$/, \"\", line); name=line; n=split(name, a, \" \" ); last=a[n]; if (last ~ /[A-Za-z]/ && last ~ /[0-9]/ && length(last) >= 5) name=substr(name, 1, length(name)-length(last)-1); if (!(name in counts)) order[++orderCount]=name; counts[name]++} END {if (orderCount == 0) print \"n/a\"; for (i=1; i<=orderCount; i++) {name=order[i]; if (counts[name] > 1) printf \"%s (x%d)\\n\", name, counts[name]; else print name}}'; else printf 'n/a'; fi",
+      "format": "{result} ••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Settings  ",
+      "splitLines": true,
+      "text": "if command -v niri >/dev/null 2>&1; then niri msg outputs | awk '/^Output \"/ {out=$0; sub(/^.*\\(/, \"\", out); sub(/\\).*$/, \"\", out); next} /^  Current mode:/ {mode=$0; sub(/^  Current mode: /, \"\", mode); sub(/ Hz$/, \"Hz\", mode); printf \"(%s): %s\\n\", out, mode }'; else printf 'n/a'; fi",
+      "format": "{result} ••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@178}󰋊 {#@252}Main      ",
+      "text": "df -T / 2>/dev/null | awk 'NR==2 {n=split($1,a,\"/\"); dev=a[n]; fs=$2; t=$3; u=$4; if (dev ~ /^luks-/) { cmd=\"ls /sys/class/block/$(basename $(readlink /dev/mapper/\" dev \"))/slaves/ 2>/dev/null | head -n1\"; cmd | getline dev; close(cmd) } if (t<=0) {print \"n/a\"; exit} printf \"%s %.2f GiB/%.2f GiB [%s]\", dev, u/1048576, t/1048576, fs}'",
+      "format": "{result}•│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Usage    ",
+      "text": "df -B1 / 2>/dev/null | awk 'NR==2 {t=$2; u=$3; if (t<=0) {print \"n/a\"; exit} p=int((u*100)/t + 0.5); if (p<0)p=0; if (p>100)p=100; w=16; f=int(p*w/100); bar=\"\"; for (i=1; i<=w; i++) bar=bar ((i<=f) ? \"█\" : \"░\"); lbl=sprintf(\"%03d%%\", p); lblc=sprintf(\"\\033[48;5;59m%s\\033[49m\", lbl); s=int((w-length(lbl))/2)+1; print substr(bar,1,s-1) lblc substr(bar,s+length(lbl))}'",
+      "format": "         •• 󰋊  {result} •••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@178}󰋊 {#@252}Data      ",
+      "text": "if [ -e /mnt/data ]; then df -T /mnt/data 2>/dev/null | awk 'NR>1 && $2==\"ext4\" {n=split($1,a,\"/\"); dev=a[n]; fs=$2; t=$3; u=$4; if (t<=0) {print \"n/a\"; exit} printf \"%s %.2f GiB/%.2f GiB [%s]\", dev, u/1048576, t/1048576, fs; exit}'; else printf 'n/a'; fi",
+      "format": "{result} •••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Usage    ",
+      "text": "if [ -e /mnt/data ]; then df -B1 -T /mnt/data 2>/dev/null | awk 'NR>1 && $2==\"ext4\" {t=$3; u=$4; if (t<=0) {print \"n/a\"; exit} p=int((u*100)/t + 0.5); if (p<0)p=0; if (p>100)p=100; w=16; f=int(p*w/100); bar=\"\"; for (i=1; i<=w; i++) bar=bar ((i<=f) ? \"█\" : \"░\"); lbl=sprintf(\"%03d%%\", p); lblc=sprintf(\"\\033[48;5;59m%s\\033[49m\", lbl); s=int((w-length(lbl))/2)+1; print substr(bar,1,s-1) lblc substr(bar,s+length(lbl)); exit}'; else printf 'n/a'; fi",
+      "format": "         •• 󰋊  {result} •••••••│"
+    },
+    {
+      "type": "custom",
+      "format": " {#@195}├──── {#@141}󰏗  SOFTWARE {#@195}──────────────────────────────────────┤"
+    },
+    {
+      "type": "custom",
+      "format": " {#@195}│ {#@141}󰏗 {#@252}Packages     •••••••••••••••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}├─{#@252}󰮯 Pacman     ",
+      "text": "if command -v pacman >/dev/null 2>&1; then pacman -Qn 2>/dev/null | wc -l; else printf 'n/a'; fi",
+      "format": "{result} ••••••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}├─{#@252}󰣇 AUR        ",
+      "text": "if command -v pacman >/dev/null 2>&1; then pacman -Qm 2>/dev/null | wc -l; else printf 'n/a'; fi",
+      "format": "{result} •••••••••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}├─{#@252}󰏔 Flatpak    ",
+      "text": "if command -v flatpak >/dev/null 2>&1; then flatpak list --app --columns=application 2>/dev/null | wc -l; else printf 'n/a'; fi",
+      "format": "{result} •••••••••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│   {#@59}└─{#@252}Total        ",
+      "text": "p=0; a=0; f=0; if command -v pacman >/dev/null 2>&1; then p=$(pacman -Qn 2>/dev/null | wc -l); a=$(pacman -Qm 2>/dev/null | wc -l); fi; if command -v flatpak >/dev/null 2>&1; then f=$(flatpak list --app --columns=application 2>/dev/null | wc -l); fi; printf '%d' $((p+a+f))",
+      "format": "{result} ••••••••••••••••••••••••••••••│"
+    },
+    {
+      "type": "command",
+      "key": " {#@195}│ {#@141}󰩟 {#@252}Network    ",
+      "text": "if command -v ip >/dev/null 2>&1; then iface=$(ip route show default 2>/dev/null | awk 'NR==1 {print $5}'); if [ -n \"$iface\" ]; then ip=$(ip -4 -o addr show dev \"$iface\" scope global 2>/dev/null | awk 'NR==1 {print $4}'); [ -n \"$ip\" ] && printf '%s' \"$ip\" || printf 'n/a'; else printf 'n/a'; fi; else printf 'n/a'; fi",
+      "format": "{result} •••••••••••••••••••••│"
+    },
+    {
+      "type": "custom",
+      "format": " {#@195}╰───────────────────────────────────────────────────────╯"
+    },
+    "break",
+    {
+      "type": "command",
+      "key": "  ",
+      "text": "printf '\\033[1m\\033[38;5;232m☠ \\033[38;5;52m☠ \\033[38;5;88m☠ \\033[38;5;124m☠ \\033[38;5;160m☠ \\033[38;5;196m☠ \\033[38;5;202m☠ \\033[38;5;208m☠ \\033[38;5;214m☠ \\033[38;5;220m☠ \\033[38;5;214m☠ \\033[38;5;208m☠ \\033[38;5;202m☠ \\033[38;5;196m☠ \\033[38;5;160m☠ \\033[38;5;124m☠ \\033[38;5;88m☠ \\033[38;5;52m☠ \\033[38;5;232m☠\\033[22m\\033[0m'"
+    }
+  ]
+}
